@@ -1,0 +1,95 @@
+
+.mainFrame {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 700px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 50px;
+    border-radius: 20px;
+    background-color: rgb(103, 107, 110);
+  }
+  
+  .register {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+  }
+  
+  .title {
+    font-weight: 600;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  
+  input {
+    width: 100%; 
+    display: block;
+    border: none;
+    border-bottom: 1px solid #999;
+    padding: 6px 30px;
+    font-family: Poppins, sans-serif;
+    box-sizing: border-box;
+    border-radius: 20px;
+  }
+  
+  input::placeholder {
+    color: #999;
+  }
+  
+  input:focus {
+    border-bottom: 1px solid #222;
+  }
+  
+  input:focus::placeholder {
+    color: #222;
+  }
+  
+  .inputs {
+    margin-bottom: 25px;
+    max-width: 400px; /* Set a max-width to the inputs */
+    width: 100%; /* Ensure inputs take full width in smaller screens */
+  }
+  
+  .reg {
+    display: flex;
+    justify-content: center; /* Center the register button */
+  }
+  
+  .reg-button {
+    color: aliceblue;
+    border-radius: 20px;
+    background-color: cadetblue;
+    width: 150px;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+ 
+  @media (max-width: 600px) {
+    .title {
+      font-size: 24px; 
+    }
+  
+    .inputs {
+      max-width: 100%; 
+    }
+  
+    .reg-button {
+      width: 150px;
+    }
+  }
+
+  .a-link {
+    text-decoration: none;
+    color: inherit; /* This will make the link take the color of its parent element */
+  }

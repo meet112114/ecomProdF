@@ -1,0 +1,132 @@
+.Main-frame {
+    display: flex;
+    flex-direction: column;
+    width: 90%; 
+    max-width: 700px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 50px;
+    border-radius: 20px;
+    background-color: rgb(103, 107, 110);
+}
+
+.login{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+}
+
+.title {
+    font-weight: 600;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+input {
+    width: 100%; 
+    display: block;
+    border: none;
+    border-bottom: 1px solid #999;
+    padding: 6px 30px;
+    font-family: Poppins, sans-serif;
+    box-sizing: border-box;
+    border-radius: 20px;
+  }
+  
+  input::placeholder {
+    color: #999;
+  }
+  
+  input:focus {
+    border-bottom: 1px solid #222;
+  }
+  
+  input:focus::placeholder {
+    color: #222;
+  }
+  
+  .inputs {
+    margin-bottom: 25px;
+    max-width: 400px; 
+    width: 100%;
+  }
+
+.log {
+    display: flex;
+    justify-content: center; /* Center the register button */
+  }
+  
+  .log-button {
+    color: aliceblue;
+    border-radius: 20px;
+    background-color: cadetblue;
+    width: 150px;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+.google-button{
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    background-color: #ffffff;
+    margin-bottom: 30px;
+    border-radius: 25px;
+}
+
+.google-link {
+    text-decoration: none;
+    color: inherit; 
+  }
+
+  .google-img{
+    align-self: center;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+  }
+
+.google-text{
+    font-size: 18px;
+    text-align: center;
+    align-self: center;
+    text-decoration: none;
+    margin-right: 10px;
+    padding-left: 10px;
+}
+
+@media (max-width: 600px) {
+    .title {
+      font-size: 24px; 
+    }
+  
+    .inputs {
+      max-width: 100%; 
+    }
+  
+    .google-button {
+        font-size: 10px;
+      width: 170px;
+    }
+    .google-text{
+        font-size: 10px;
+        text-align: center;
+        align-self: center;
+        text-decoration: none;
+        
+    }
+  }
+
+  .a-link {
+    text-decoration: none;
+    color: inherit;
+  }
