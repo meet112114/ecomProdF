@@ -1,0 +1,138 @@
+.main-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 10px;
+  max-width: 700px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.custom-select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.custom-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #fff;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23000000" d="M2 5L0 0h4z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px 10px; /* Adjust the size here */
+}
+
+.custom-select:focus {
+  border-color: #007bff;
+}
+
+.custom-select-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23000000" d="M2 0L0 2h4z"/></svg>');
+  background-size: 10px;
+  background-repeat: no-repeat;
+}
+
+.Title {
+  font-weight: 600;
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  position: relative;
+  width: 70%;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background-color: #f4f4f4;
+  padding: 0 5px;
+  font-size: 14px;
+}
+
+.inputs1 {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.inputs:focus {
+  border-color: #007bff;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.btn1 {
+  padding: 10px 10px;
+  background-color: #646262;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+.btn1:hover {
+  background-color: #353434;
+  color: #fff6f6;
+}
+
+@media (max-width: 700px) {
+  .main-frame {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 24px; 
+  }
+
+  .inputs {
+    padding: 5px;
+  }
+
+  .btn {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+}
