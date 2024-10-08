@@ -1,0 +1,88 @@
+.Product-container {
+    display: flex;
+    flex-direction: row; /* Stack items vertically on smaller screens */
+    background-color: #fff; /* White background for the product card */
+    border: 1px solid #eaeaea; /* Light border for the card */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 600px; /* Maximum width for the card */
+    margin: 20px; /* Space between cards */
+    overflow: hidden; /* Hide overflow for rounded corners */
+    transition: transform 0.3s ease; /* Animation on hover */
+}
+
+.Product-container:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+.image-container {
+    display: flex; /* Enable flexbox layout */
+    align-items: center; 
+    justify-content: center;
+    height: 300px;
+    width: 300px; /* Full width of the container */
+    overflow: hidden; /* Hide overflow of images */
+    border-bottom: 1px solid #eaeaea; /* Divider line */
+    margin-right: 30px;
+    margin-left: 20px;
+}
+
+.image {
+    max-width: 100%; /* Ensure the image doesn't exceed container width */
+    max-height: 100%; /* Ensure the image doesn't exceed container height */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove bottom space in images */
+}
+
+.info-container {
+    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    padding: 15px; /* Space around the text */
+}
+
+.info-name {
+    text-transform: capitalize;
+    font-size: 1.5em; /* Increase font size */
+    font-weight: bold; /* Bold text */
+    color: #333; /* Dark text color */
+    margin-bottom: 10px; /* Space below the name */
+}
+
+.info-desc {
+    text-transform: capitalize;
+    font-size: 0.9em; /* Slightly smaller font size for description */
+    color: #666; /* Gray color for description text */
+    margin-bottom: 10px; /* Space below the description */
+    line-height: 1.5; /* Line height for readability */
+}
+
+.info-price {
+    font-size: 1.3em; /* Font size for price */
+    color: #e91e63; /* Highlight color for price */
+    font-weight: bold; /* Bold text for emphasis */
+}
+
+/* Optional: Add a button */
+.add-to-cart {
+    margin-top: 30px;
+    background-color: #e91e63; /* Button color */
+    color: #fff; /* Button text color */
+    border: none; /* No border */
+    padding: 10px 15px; /* Space inside the button */
+    border-radius: 5px; /* Rounded button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1em; /* Button font size */
+    transition: background-color 0.3s ease; /* Animation on hover */
+    
+}
+
+.add-to-cart:hover {
+    background-color: #d81b60; /* Darker color on hover */
+}
+
+.ProductLink {
+    text-decoration: none; /* Removes underline from the link */
+    color: inherit; /* Inherit text color */
+  }

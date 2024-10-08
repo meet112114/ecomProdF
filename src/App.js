@@ -6,7 +6,9 @@ import Login from './pages/login/login';
 import Signup from './pages/signup/signup';
 import Profile from './pages/profile/profile';
 import Logout from './pages/logout/logout';
+import Products from './pages/products/products';
 import Googlelogin from './pages/googleLogin/googlelogin';
+import SingleProduct from './pages/singleProduct/singleProduct';
 import { initialState , reducer } from "./reducer/UserReducer"
 import Navbar from './components/navbar/navbar';
 export const UserContext = createContext();
@@ -26,6 +28,8 @@ function App() {
       <Route path='/profile' element={<Profile/>} />
       <Route path='/logout' element={<Logout/>} />
       <Route path='/google' element={<Googlelogin/>} />
+      <Route path='/products' element={<Products/>} />
+      <Route path='/product/:id' element={<SingleProduct/>} />
     </Routes>
   </Router>
   </UserContext.Provider>

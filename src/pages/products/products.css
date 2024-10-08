@@ -1,0 +1,9 @@
+.ProductsContainer {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to the next line */
+    justify-content: space-evenly; /* Distribute items evenly */
+    gap: 20px; /* Space between the product cards */
+    padding: 20px;
+}
+
+
