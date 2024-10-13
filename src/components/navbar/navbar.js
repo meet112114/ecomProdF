@@ -1,11 +1,32 @@
 import React , {useContext} from 'react'
+import './navbar.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import { gsap } from 'gsap';
+import { useGSAP } from "@gsap/react";
 import { NavLink } from 'react-router-dom'
 import { UserContext } from '../../App'
 
 const Navbar = () => {
   const  {state , dispatch} = useContext( UserContext);
+
+  useGSAP(()=>{
+    gsap.from(".nav-item" , {
+      y: -100,
+      opacity: 0,
+      duration: 0.9,
+      stagger: 0.4,
+    });
+
+    gsap.from("#abc", {
+      scale: 0,
+      opacity: 0,
+      duration: 0.5,
+      delay: 0.5, // Delay the brand animation slightly
+    });
+
+  })
+
   const RenderMenu = () => {
     if(state) {
       return(
@@ -14,10 +35,10 @@ const Navbar = () => {
           <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/About">About</NavLink>
+          <NavLink className="nav-link" to="/products">Products</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/Contact">Contact</NavLink>
+          <NavLink className="nav-link" to="/cart">Cart</NavLink>
         </li>
         <li className="nav-item">
           <NavLink className="nav-link" to="/profile">Profile</NavLink>
@@ -34,7 +55,7 @@ const Navbar = () => {
           <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/About">About</NavLink>
+          <NavLink className="nav-link" to="/products">Products</NavLink>
         </li>
         <li className="nav-item">
           <NavLink className="nav-link" to="/Login">Login</NavLink>
@@ -52,7 +73,7 @@ const Navbar = () => {
    <>
      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">Meet.$</a>
+          <a className="navbar-brand" id="abc" href="#">Meet.$</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>

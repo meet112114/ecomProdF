@@ -11,6 +11,7 @@ import Googlelogin from './pages/googleLogin/googlelogin';
 import SingleProduct from './pages/singleProduct/singleProduct';
 import { initialState , reducer } from "./reducer/UserReducer"
 import Navbar from './components/navbar/navbar';
+import Cart from './pages/cart/cart';
 export const UserContext = createContext();
 
 
@@ -30,6 +31,7 @@ function App() {
       <Route path='/google' element={<Googlelogin/>} />
       <Route path='/products' element={<Products/>} />
       <Route path='/product/:id' element={<SingleProduct/>} />
+      <Route path='/cart' element={<Cart/>} />
     </Routes>
   </Router>
   </UserContext.Provider>
