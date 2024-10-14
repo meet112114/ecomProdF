@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./cart.css"
+import image from '../../assets/images/delete.png';
+import cart from '../../assets/images/cart.png'
 
 const Cart = () => {
     const [cartItems, setCartItems] = useState([]);
@@ -40,7 +42,7 @@ const Cart = () => {
                     }
                     const product = await response.json();
                     details[item.productId] = product; // Store product details by ID
-                    
+
                     // Add the product price to the total price
                     priceSum += product.price * (item.quantity || 1); // Multiply by quantity if applicable
                 } catch (err) {
@@ -80,36 +82,93 @@ const Cart = () => {
         }
     };
 
+    const checkout = async() => {
+        try{
+            const res = await fetch("/checkout" , {
+                method:"POST",
+                headers:{
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    cartItems
+                })
+            })
+            .then(res => {
+                if(res.ok) return res.json()
+                    return res.json().then(json => Promise.reject(json))
+            })
+            .then(({url})=> {
+                window.location = url
+            })
+        }catch(error){
+            console.log(error)
+        }
+    }
+
     return (
         <div className="cart-container">
             <h2>Your Shopping Cart</h2>
             {cartItems.length === 0 ? (
                 <p>Your cart is empty.</p>
             ) : (
-                <div>
+                <div className="cart-container">
                     {cartItems.map((item) => (
                         <div key={item._id} className="cart-item">
                             {productDetails[item.productId] ? (
                                 <>
-                                    <img
-                                        src={productDetails[item.productId].image_url} 
-                                        alt={productDetails[item.productId].name} // Assuming the product name is stored in name
-                                        style={{ width: '50px', height: '50px', marginRight: '10px' }}
-                                    />
-                                    <p><strong>Product Name:</strong> {productDetails[item.productId].name}</p>
-                                    <p><strong>Color:</strong> {item.color}</p>
-                                    <p><strong>Size:</strong> {item.size}</p>
-                                    <p><strong>Price:</strong> ${productDetails[item.productId].price}</p>
-                                    <button onClick={() => deleteCartItem(item)}>Delete</button>
+                                    <div className="cart-item-image">
+                                        <img
+                                            src={productDetails[item.productId].image_url}
+                                            alt={productDetails[item.productId].name}
+                                            className="product-image"
+                                        />
+                                    </div>
+
+                                    <div className="cart-item-details">
+                                        <div className="cart-item-name">
+                                            <strong>Product Name:</strong> {productDetails[item.productId].name}
+                                        </div>
+                                        <div className="cart-item-color">
+                                            <strong>Color:</strong> {item.color}
+                                        </div>
+                                        <div className="cart-item-size">
+                                            <strong>Size:</strong> {item.size}
+                                        </div>
+                                        <div className="cart-item-price">
+                                            <strong>Price:</strong> ₹{productDetails[item.productId].price}
+                                        </div>
+                                    </div>
+
+                                    <div className="cart-item-delete">
+                                        <img
+                                            src={image}
+                                            alt="Delete item"
+                                            className="delete-button"
+                                            onClick={() => {
+                                                const confirmDelete = window.confirm("Are you sure you want to delete this item?");
+                                                if (confirmDelete) {
+                                                    deleteCartItem(item);
+                                                }
+                                            }}
+                                        />
+                                    </div>
                                 </>
                             ) : (
                                 <p>Loading product details...</p>
                             )}
                         </div>
                     ))}
-                    <div className="total-price">
-                        <h3>Total Price: ${totalPrice.toFixed(2)}</h3> {/* Display total price */}
+                    <div className='payment-sec'>
+
+                    <div className="total-price-container">
+                        <h3>Total Price: ${totalPrice.toFixed(2)}</h3>
                     </div>
+                    <div className="checkout-container">
+                        <img onClick={checkout} src={cart}/>
+                    </div>
+                      
+                    </div>
+                    
                 </div>
             )}
         </div>

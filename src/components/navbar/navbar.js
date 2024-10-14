@@ -27,24 +27,32 @@ const Navbar = () => {
 
   })
 
+  const closeNavbar = () => {
+    const navbarCollapse = document.getElementById('navbarSupportedContent');
+    if (navbarCollapse.classList.contains('show')) {
+      // Collapse the navbar if it's open
+      navbarCollapse.classList.remove('show');
+    }
+  };
+
   const RenderMenu = () => {
     if(state) {
       return(
         <>
           <li className="nav-item">
-          <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
+          <NavLink className="nav-link" onClick={closeNavbar} aria-current="page" to="/">Home</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/products">Products</NavLink>
+          <NavLink className="nav-link" onClick={closeNavbar} to="/products">Products</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/cart">Cart</NavLink>
+          <NavLink className="nav-link" onClick={closeNavbar} to="/cart">Cart</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/profile">Profile</NavLink>
+          <NavLink className="nav-link" onClick={closeNavbar} to="/profile">Profile</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/logout">Logout</NavLink>
+          <NavLink className="nav-link" onClick={closeNavbar} to="/logout">Logout</NavLink>
         </li>
         </>
       )
@@ -52,16 +60,16 @@ const Navbar = () => {
       return(
         <>
           <li className="nav-item">
-          <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
+          <NavLink className="nav-link" onClick={closeNavbar} aria-current="page" to="/">Home</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/products">Products</NavLink>
+          <NavLink className="nav-link" onClick={closeNavbar} to="/products">Products</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/Login">Login</NavLink>
+          <NavLink className="nav-link" onClick={closeNavbar} to="/Login">Login</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/register">Registartion</NavLink>
+          <NavLink className="nav-link" onClick={closeNavbar} to="/register">Registartion</NavLink>
         </li>
         </>
       )

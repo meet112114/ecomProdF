@@ -42,7 +42,7 @@ const ProductCard = ({ data }) => {
           </div>
 
           <div className='info-price'>
-            {`$ ${data.price}`}
+            {`₹ ${data.price}`}
           </div>
 
         </div>

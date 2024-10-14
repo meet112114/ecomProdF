@@ -1,27 +1,115 @@
+/* Cart container */
 .cart-container {
-    width: 80%;
-    margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+    
 }
 
+/* Cart item styles (default horizontal layout for PC and tablets) */
 .cart-item {
     display: flex;
-    align-items: center; /* Aligns the image and text vertically */
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
+    align-items: center;
+    border-bottom: 1px solid #eaeaea;
+    padding: 10px 0;
+    flex-direction: row; /* Ensure horizontal layout */
+    margin-bottom: 20px;
 }
 
-.cart-item img {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px; /* Space between the image and text */
+/* Image container */
+.cart-item-image {
+    flex: 0 0 50px;
+    margin-right: 15px;
 }
 
-.cart-item p {
-    margin: 5px 0;
+.product-image {
+    border-radius: 20px;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
+
+/* Details container */
+.cart-item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+}
+
+
+
+/* Delete button */
+.cart-item-delete {
+    flex: 0 0 auto;
+}
+
+.delete-button {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* Total price container */
+.total-price-container {
+    text-align: right;
+    margin-top: 20px;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    .cart-item {
+        background-color: rgb(240, 236, 232);
+        border-radius: 20px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .cart-item-image {
+        display: flex;
+        justify-content: center;          /* Allow the image container to fit the content */
+        margin-right: 0;         /* Remove margin on mobile */
+        margin-bottom: 10px;     /* Add space below the image */
+        width: 100%;        
+    }
+
+    .cart-item-details {
+        gap: 5px;
+        flex-direction: column;
+    }
+
+    .cart-item-delete {
+        margin-top: 10px;
+        align-self: center;
+    }
+
+    .total-price-container {
+        text-align: left;
+    }
+}
+
+.payment-sec {
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between total price and checkout */
+    align-items: center; /* Center vertically */
+    margin-top: 20px; /* Space above payment section */
+}
+
+.total-price-container {
+    font-size: 1.5em; /* Larger font for total price */
+    color: #e91e63; /* Highlight color for total price */
+}
+
+.checkout-container {
+    display: flex; /* Flexbox for layout */
+    justify-content: center; /* Center checkout button */
+    align-items: center; /* Center vertically */
+}
+
+.checkout-container img {
+    cursor: pointer;
+    width: 50px; /* Size for the checkout icon */
+    height: auto; /* Maintain aspect ratio */
 }

@@ -186,7 +186,7 @@ const SingleProduct = () => {
             <div className='product-name'>Name: {productData?.name || 'Product Name'}</div>
             <div className='product-model'>Model: {productData?.model || 'Product Model'}</div>
             <div className='product-category'>Category: {productData?.category || 'Category'}</div>
-            <div className='product-price'>Price: ${productData?.price || 'Price'}</div>
+            <div className='product-price'>Price: ₹{productData?.price || 'Price'}</div>
             <div className='product-description'>{productData?.description || 'Description'}</div>
 
             {/* Color selection component */}
