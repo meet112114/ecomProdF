@@ -35,6 +35,8 @@ const Login = () => {
         }else if (res.status === 401){
             console.log("account linked with google");
         }else if(res.status === 200){
+            // localStorage.setItem('token', data.token);
+            console.log(data.token)
             dispatch({type:"USER" , payload:true})
             window.alert("Login successful");
             console.log("Login successful");
