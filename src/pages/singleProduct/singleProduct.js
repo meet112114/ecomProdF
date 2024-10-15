@@ -134,15 +134,15 @@ const SingleProduct = () => {
       try{
         const res = await fetch('https://ecomprodb.onrender.com/add/cart' , {
           method:"POST",
-          headers:{
-              "Content-Type" : "application/json"
-          },
+          headers: {
+                'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
+                'Content-Type': 'application/json', // Specify the content type
+                    },
           body: JSON.stringify({
             productId: productData._id,
             color: selectedColor,
             size: selectedSize.size
-          }),
-          credentials: "include"
+          })
       });
       if(res.ok){
         window.alert("Added successfully")
