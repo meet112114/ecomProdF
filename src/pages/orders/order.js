@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
+import jwt_decode from 'jwt-decode'; // Correct import
 import './order.css';
 import { UserContext } from '../../App';
 import Item from '../../components/orderItem/orderItem';
 import { useNavigate } from 'react-router-dom';
-import jwt from 'jwt-decode'; // Ensure you import jwt-decode
 
 const Order = () => {
     const navigate = useNavigate();
@@ -16,8 +16,8 @@ const Order = () => {
         const token = localStorage.getItem('jwtoken'); // Retrieve the token from local storage
 
         if (token) {
-            // If token exists, dispatch user information (this assumes you have user info in the token)
-            const decodedToken = jwt(token); // Decode the token to get user info (ensure the jwt-decode library is installed)
+            // If token exists, dispatch user information
+            const decodedToken = jwt_decode(token); // Decode the token to get user info
             dispatch({ type: 'USER', payload: decodedToken }); // Dispatch user data
         } else {
             // If no token, set user to null and redirect to login
@@ -28,9 +28,6 @@ const Order = () => {
 
     useEffect(() => {
         const fetchOrders = async () => {
-            const token = localStorage.getItem('jwtoken'); // Retrieve token again for fetch call
-            if (!token) return; // Exit early if no token
-
             try {
                 const response = await fetch('https://ecomprodb.onrender.com/get/orders', {
                     method: 'GET',
@@ -39,11 +36,9 @@ const Order = () => {
                         'Content-Type': 'application/json', // Specify the content type
                     },
                 });
-
                 if (!response.ok) {
                     throw new Error('Failed to fetch orders');
                 }
-                
                 const data = await response.json();
                 console.log(data); // Log fetched data for debugging
                 setOrders(data); // Update the orders state
@@ -55,8 +50,8 @@ const Order = () => {
             }
         };
 
-        fetchOrders(); // Call fetchOrders function
-    }, []); // Ensure to run this only once on component mount
+        fetchOrders();
+    }, []);
 
     // Render loading state
     if (loading) return <div>Loading orders...</div>;
@@ -74,7 +69,7 @@ const Order = () => {
                     {orderKeys.map((orderId) => {
                         const order = orders[orderId];
                         return (
-                            <div className='order-container' key={orderId}> {/* Use orderId for the key */}
+                            <div className='order-container' key={order._id}>
                                 <div className='order-info'>
                                     <div><strong>Order ID :</strong> {orderId}</div>
                                     <div><strong>Total Amount :</strong> ₹ {order.amountTotal}</div>
