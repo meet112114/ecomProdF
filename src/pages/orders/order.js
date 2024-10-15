@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import jwt_decode from 'jwt-decode'; // Correct import
 import './order.css';
 import { UserContext } from '../../App';
 import Item from '../../components/orderItem/orderItem';
@@ -16,9 +15,7 @@ const Order = () => {
         const token = localStorage.getItem('jwtoken'); // Retrieve the token from local storage
 
         if (token) {
-            // If token exists, dispatch user information
-            const decodedToken = jwt_decode(token); // Decode the token to get user info
-            dispatch({ type: 'USER', payload: decodedToken }); // Dispatch user data
+            dispatch({ type: 'USER', payload: true  }); // Dispatch user data
         } else {
             // If no token, set user to null and redirect to login
             dispatch({ type: 'USER', payload: null });
