@@ -78,12 +78,14 @@ const Cart = () => {
     if (error) return <div>{error}</div>;
 
     const deleteCartItem = async (item) => {
+        const token = localStorage.getItem('jwtoken');
         try {
             const res = await fetch(`https://ecomprodb.onrender.com/delete/cart-item/${item._id}`, {
                 method: 'DELETE',
                 headers: {
-                    'Content-Type': 'application/json',
-                },
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}` // Correctly include the Bearer token
+            },
             });
             if (res.ok) {
                 setCartItems(prevItems => prevItems.filter(cartItem => cartItem._id !== item._id));
@@ -98,14 +100,16 @@ const Cart = () => {
     };
 
     const checkout = async() => {
+        const token = localStorage.getItem('jwtoken');
         const baseUrl = window.location.origin;
         console.log(baseUrl);
         try{
             const res = await fetch("https://ecomprodb.onrender.com/checkout" , {
                 method:"POST",
-                headers:{
-                    'Content-Type': 'application/json',
-                },
+               headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}` // Correctly include the Bearer token
+            },
                 body: JSON.stringify({
                     cartItems,
                     baseUrl
@@ -136,7 +140,7 @@ const Cart = () => {
                                 <>
                                     <div className="cart-item-image">
                                         <img
-                                            src={productDetails[item.productId].image_url}
+                                            src={"https://ecomprodb.onrender.com"+productDetails[item.productId].image_url}
                                             alt={productDetails[item.productId].name}
                                             className="product-image"
                                         />
