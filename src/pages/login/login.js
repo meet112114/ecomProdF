@@ -28,7 +28,9 @@ const Login = () => {
         });
         
         const data = res.json();
-        console.log(data)
+        const token = response.data.token;
+        localStorage.setItem('jwtoken', token);
+        console.log(token)
 
         if(res.status === 400 || !data){
             console.log("invalid credenials");
