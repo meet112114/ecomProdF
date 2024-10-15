@@ -12,34 +12,30 @@ const Order = () => {
     const  {state , dispatch} = useContext( UserContext);
 
     useEffect(() => {
-        const verifyUser = async () => {
-          try {
-            const res = await fetch('https://ecomprodb.onrender.com/auth/verify', {
-              method: 'GET',
-              credentials: 'include', // This ensures cookies are sent with the request
-            });
-    
-            if (res.status === 200) {
-              const data = await res.json();
-              dispatch({ type: 'USER', payload: data.user }); // Assuming server sends user data
-            } else {
-              dispatch({ type: 'USER', payload: null }); // If not authenticated, set user to null
-              navigate('/login'); // Redirect to login if not authenticated
-            }
-          } catch (error) {
-            console.error('Error verifying user:', error);
-            dispatch({ type: 'USER', payload: null });
-          }
-        };
-    
-        verifyUser();
-      }, [dispatch, navigate]);
+    const token = localStorage.getItem('jwtoken'); // Retrieve the token from local storage
+
+    if (token) {
+        // If token exists, dispatch user information (this assumes you have user info in the token)
+        const decodedToken = jwt.decode(token); // Decode the token to get user info (if your token contains user info)
+        dispatch({ type: 'USER', payload: decodedToken }); // Dispatch user data
+    } else {
+        // If no token, set user to null and redirect to login
+        dispatch({ type: 'USER', payload: null }); 
+        navigate('/login'); // Redirect to login if not authenticated
+    }
+}, [dispatch, navigate]); // Dependencies
 
 
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await fetch('https://ecomprodb.onrender.com/get/orders'); 
+                const response = await fetch('https://ecomprodb.onrender.com/get/orders' {
+                    method: 'GET',
+                    headers: {
+                    'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
+                    'Content-Type': 'application/json', // Specify the content type
+                },
+                }); 
                 if (!response.ok) {
                     throw new Error('Failed to fetch orders');
                 }
