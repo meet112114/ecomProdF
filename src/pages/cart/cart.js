@@ -11,23 +11,39 @@ const Cart = () => {
     const [totalPrice, setTotalPrice] = useState(0); // State to track the total price
 
     useEffect(() => {
-        const fetchCartItems = async () => {
-            try {
-                const response = await fetch('https://ecomprodb.onrender.com/get/cart'); // Replace with your actual endpoint
-                if (!response.ok) {
-                    throw new Error('Failed to fetch cart items');
-                }
-                const data = await response.json();
-                setCartItems(data); // Adjust this based on the actual response structure
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
+    const fetchCartItems = async () => {
+        try {
+            // Retrieve token from localStorage
+            const token = localStorage.getItem('jwtoken');
+            
+            if (!token) {
+                throw new Error('No token found, please log in again.');
             }
-        };
 
-        fetchCartItems();
-    }, []);
+            // Fetch cart items with Authorization header
+            const response = await fetch('https://ecomprodb.onrender.com/get/cart', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`  // Send the token in the Authorization header
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch cart items');
+            }
+
+            const data = await response.json();
+            setCartItems(data); // Adjust based on the actual response structure
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    fetchCartItems();
+}, []); 
 
     useEffect(() => {
         const fetchProductDetails = async () => {
