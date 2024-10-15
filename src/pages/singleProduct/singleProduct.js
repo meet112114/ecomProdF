@@ -18,13 +18,12 @@ const SingleProduct = () => {
   // Fetch product data based on the product ID
   const getProjects = async () => {
     try {
-      const res = await fetch(`/get/product/${id}`, {
+      const res = await fetch(`https://ecomprodb.onrender.com/get/product/${id}`, {
         method: 'GET',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-        },
-        credentials: 'include',
+        }
       });
 
       if (res.status !== 200) {
@@ -125,7 +124,7 @@ const SingleProduct = () => {
 
     return (
       <div onClick={changeMainImg} className='image_grid-image'>
-        <img src={data} alt='Product' />
+        <img src={"https://ecomprodb.onrender.com"+data} alt='Product' />
       </div>
     );
   };
@@ -133,7 +132,7 @@ const SingleProduct = () => {
   const addToCart = async() => {
     if(productData && selectedColor && selectedSize){
       try{
-        const res = await fetch('/add/cart' , {
+        const res = await fetch('https://ecomprodb.onrender.com/add/cart' , {
           method:"POST",
           headers:{
               "Content-Type" : "application/json"
@@ -142,7 +141,8 @@ const SingleProduct = () => {
             productId: productData._id,
             color: selectedColor,
             size: selectedSize.size
-          })
+          }),
+          credentials: "include"
       });
       if(res.ok){
         window.alert("Added successfully")
@@ -166,7 +166,7 @@ const SingleProduct = () => {
               <img
                 className='image'
                 loading='lazy'
-                src={mainImg}
+                src={"https://ecomprodb.onrender.com"+mainImg}
                 alt='img not available'
               />
             </div>

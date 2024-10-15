@@ -2,7 +2,6 @@
   "name": "workout-planner-frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://ecomprodb.onrender.com/",
   "dependencies": {
     "@gsap/react": "^2.1.1",
     "@popperjs/core": "^2.11.8",

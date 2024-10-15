@@ -26,7 +26,7 @@ const ProductCard = ({ data }) => {
           <img
             className={`image ${isLoading ? 'loading' : ''}`}
             loading='lazy'
-            src={data.image_url}
+            src={"https://ecomprodb.onrender.com"+data.image_url}
             alt='img not available'
             onLoad={handleImageLoad}
           />

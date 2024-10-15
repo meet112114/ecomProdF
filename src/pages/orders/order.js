@@ -14,7 +14,7 @@ const Order = () => {
     useEffect(() => {
         const verifyUser = async () => {
           try {
-            const res = await fetch('/auth/verify', {
+            const res = await fetch('https://ecomprodb.onrender.com/auth/verify', {
               method: 'GET',
               credentials: 'include', // This ensures cookies are sent with the request
             });
@@ -39,7 +39,7 @@ const Order = () => {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await fetch('/get/orders'); 
+                const response = await fetch('https://ecomprodb.onrender.com/get/orders'); 
                 if (!response.ok) {
                     throw new Error('Failed to fetch orders');
                 }

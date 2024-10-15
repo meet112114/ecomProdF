@@ -9,7 +9,7 @@ const Item = ({ item }) => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await fetch(`/get/product/${item.productId}`);
+                const response = await fetch(`https://ecomprodb.onrender.com/get/product/${item.productId}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch product details');
                 }
