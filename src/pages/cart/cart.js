@@ -108,7 +108,7 @@ const Cart = () => {
                 method:"POST",
                headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}` // Correctly include the Bearer token
+                'Authorization': `Bearer ${token}` 
             },
                 body: JSON.stringify({
                     cartItems,
@@ -140,7 +140,7 @@ const Cart = () => {
                                 <>
                                     <div className="cart-item-image">
                                         <img
-                                            src={"https://ecomprodb.onrender.com"+productDetails[item.productId].image_url}
+                                            src={"https://ecomprodb.onrender.com" + productDetails[item.productId].image_url}
                                             alt={productDetails[item.productId].name}
                                             className="product-image"
                                         />
