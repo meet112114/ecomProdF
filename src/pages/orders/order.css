@@ -1,0 +1,90 @@
+.Orders-container {
+    background-image: url('../../assets/images/3.jpg');
+    background-size:cover; /* Adjust based on your needs */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0 auto;
+    align-items: center;
+    
+    padding: 20px;
+}
+
+/* Each individual order's container */
+.order-container {
+    max-width: 800px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Basic order information */
+.order-info {
+    margin-bottom: 15px;
+}
+
+/* Container for the items list */
+.order-items {
+    width: 400px;
+    text-align: center;
+    max-height: 200px; /* Set a fixed height for the container */
+    overflow-y: auto; /* Allow vertical scrolling */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: transparent transparent; /* For Firefox */
+    position: relative; /* Ensure positioning context for fixed items */
+}
+
+/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+.order-items::-webkit-scrollbar {
+    width: 0; /* Hide the scrollbar */
+    background: transparent; /* Optional: make the background transparent */
+}
+
+/* Style each item */
+.item-container {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    position: relative; /* Ensure positioning context */
+}
+
+.item-container:last-child {
+    border-bottom: none;
+}
+.orders-title{
+    text-align: center;
+    font-size: 45px;
+    font-family: monospace;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+    .Orders-container {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .order-container {
+        padding: 15px;
+        flex-direction: column;
+    }
+
+    .order-items{
+        max-width: 100%;
+    }
+
+
+}

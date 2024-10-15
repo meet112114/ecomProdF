@@ -1,0 +1,16 @@
+.custom-navbar {
+    padding: 1rem 1.5rem; /* Increase vertical padding */
+    height: 40px; /* Set a specific height */
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem; /* Increase font size if needed */
+    line-height: 40px; /* Match the height for vertical centering */
+  }
+  
+  .nav-item .nav-link {
+    font-size: 20px;
+    padding: 0.75rem 1rem; /* Increase padding for nav items */
+    line-height: 40px; /* Match the height for vertical centering */
+  }
+

@@ -1,0 +1,47 @@
+.item-container {
+    display: flex; /* Use flexbox to align children horizontally */
+    border: 1px solid #020202; /* Border around the item */
+    border-radius: 15px; /* Rounded corners */
+    padding: 10px; /* Padding around the item */
+    margin-bottom: 10px; /* Space between items */
+    background-color: #fff; /* White background for items */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+}
+
+.image-section1 {
+    width: 100px; /* Fixed height for images */
+    overflow: hidden; /* Hide overflow if image is larger */
+    display: flex; /* Centering the image */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.image-div1 {
+    align-self: center;
+    justify-content: center;
+    max-width: 100%; /* Ensure image div does not exceed parent width */
+    max-height: 100%; /* Ensure image div does not exceed parent height */
+}
+
+.image-div1 img {
+    max-width: 100%; /* Responsive image width */
+    max-height: 100%; /* Responsive image height */
+    object-fit: cover; /* Cover aspect ratio without distortion */
+}
+
+.info-container1 {
+    flex-grow: 1; /* Allow the info container to fill remaining space */
+    padding-left: 10px; /* Space between image and info */
+    display: flex;
+    flex-direction: column; /* Stack text vertically */
+    justify-content: center; /* Center the text vertically */
+}
+
+.info-container1 div {
+    margin-bottom: 5px; /* Space between info lines */
+    font-size: 14px; /* Adjust font size */
+}
+
+.info-container1 div:last-child {
+    margin-bottom: 0; /* Remove bottom margin for last item */
+}

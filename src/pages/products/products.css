@@ -1,0 +1,11 @@
+.ProductsContainer {
+    background-image: url('../../assets/images/3.jpg');
+    background-size: cover; /* Adjust based on your needs */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to the next line */
+    justify-content: space-evenly; /* Distribute items evenly */
+    gap: 20px; /* Space between the product cards */
+}
+
