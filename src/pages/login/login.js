@@ -28,7 +28,7 @@ const Login = () => {
         });
         
         const data = res.json();
-        const token = response.data.token;
+        const token = res.data.token;
         localStorage.setItem('jwtoken', token);
         console.log(token)
 
