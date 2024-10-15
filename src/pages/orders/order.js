@@ -29,7 +29,7 @@ const Order = () => {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await fetch('https://ecomprodb.onrender.com/get/orders' {
+                const response = await fetch('https://ecomprodb.onrender.com/get/orders' , {
                     method: 'GET',
                     headers: {
                     'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
