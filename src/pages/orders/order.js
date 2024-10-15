@@ -25,6 +25,7 @@ const Order = () => {
 
     useEffect(() => {
         const fetchOrders = async () => {
+            const token = localStorage.getItem('jwtoken');
             try {
                 const response = await fetch('https://ecomprodb.onrender.com/get/orders', {
                     method: 'GET',
