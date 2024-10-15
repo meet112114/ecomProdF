@@ -27,7 +27,16 @@ const Login = () => {
             body: JSON.stringify(LoginformData)
         });
         
-         const data = await res.json(); // Parse the response as JSON
+         const data = await res.json();
+        
+        if (res.ok) {  // Check if the response was successful (e.g., status code 200)
+            const token = data.token;  // Extract the token from the response
+            localStorage.setItem('jwtoken', token);  // Store the token in localStorage
+            console.log('Token stored in localStorage:', token);  // Confirm storage
+        } else {
+            // Handle errors like invalid login
+            console.error('Login failed:', data.message || 'Unknown error');
+        }
             
       
 
@@ -36,9 +45,7 @@ const Login = () => {
         }else if (res.status === 401){
             console.log("account linked with google");
         }else if(res.status === 200){
-            const token = data.token; // Extract the token
-            localStorage.setItem('jwtoken', token); // Store the token in localStorage
-            console.log('Token stored in localStorage:', token); // Debugging output
+            
             dispatch({type:"USER" , payload:true})
             window.alert("Login successful");
             console.log("Login successful");
