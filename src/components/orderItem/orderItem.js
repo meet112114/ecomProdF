@@ -32,7 +32,7 @@ const Item = ({ item }) => {
         <div className='item-container'>
             <div className='image-section1'>
                 <div className='image-div1'>
-                    <img src={product.image_url} alt=''/>
+                    <img src={"https://ecomprodb.onrender.com" + product.image_url} alt=''/>
                 </div>
             </div>
             <div className='info-container1'>
