@@ -130,6 +130,7 @@ const SingleProduct = () => {
   };
 
   const addToCart = async() => {
+      const token = localStorage.getItem('jwtoken');
     if(productData && selectedColor && selectedSize){
       try{
         const res = await fetch('https://ecomprodb.onrender.com/add/cart' , {
