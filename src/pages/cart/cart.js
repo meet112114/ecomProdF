@@ -83,6 +83,8 @@ const Cart = () => {
     };
 
     const checkout = async() => {
+        const baseUrl = window.location.origin;
+        console.log(baseUrl);
         try{
             const res = await fetch("/checkout" , {
                 method:"POST",
@@ -90,7 +92,8 @@ const Cart = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    cartItems
+                    cartItems,
+                    baseUrl
                 })
             })
             .then(res => {

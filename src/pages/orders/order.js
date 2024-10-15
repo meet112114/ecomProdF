@@ -1,11 +1,40 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './order.css';
+import { UserContext } from '../../App';
 import Item from '../../components/orderItem/orderItem';
+import { useNavigate } from 'react-router-dom';
 
 const Order = () => {
+    const navigate = useNavigate();
     const [orders, setOrders] = useState({}); // Initialize orders as an empty object
     const [loading, setLoading] = useState(true); // State for loading
     const [error, setError] = useState(null); // State for error handling
+    const  {state , dispatch} = useContext( UserContext);
+
+    useEffect(() => {
+        const verifyUser = async () => {
+          try {
+            const res = await fetch('/auth/verify', {
+              method: 'GET',
+              credentials: 'include', // This ensures cookies are sent with the request
+            });
+    
+            if (res.status === 200) {
+              const data = await res.json();
+              dispatch({ type: 'USER', payload: data.user }); // Assuming server sends user data
+            } else {
+              dispatch({ type: 'USER', payload: null }); // If not authenticated, set user to null
+              navigate('/login'); // Redirect to login if not authenticated
+            }
+          } catch (error) {
+            console.error('Error verifying user:', error);
+            dispatch({ type: 'USER', payload: null });
+          }
+        };
+    
+        verifyUser();
+      }, [dispatch, navigate]);
+
 
     useEffect(() => {
         const fetchOrders = async () => {
