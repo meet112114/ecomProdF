@@ -12,35 +12,34 @@ const Cart = () => {
 
     useEffect(() => {
     const fetchCartItems = async () => {
-        try {
-            // Retrieve token from localStorage
-            const token = localStorage.getItem('jwtoken');
-            
-            if (!token) {
-                throw new Error('No token found, please log in again.');
+    const token = localStorage.getItem('jwtoken');
+    console.log(token)
+    if (!token) {
+        throw new Error('No token found, please log in again.');
+    }
+
+    try {
+        const response = await fetch('https://ecomprodb.onrender.com/get/cart', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}` // Correctly include the Bearer token
             }
+        });
 
-            // Fetch cart items with Authorization header
-            const response = await fetch('https://ecomprodb.onrender.com/get/cart', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`  // Send the token in the Authorization header
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to fetch cart items');
-            }
-
-            const data = await response.json();
-            setCartItems(data); // Adjust based on the actual response structure
-        } catch (err) {
-            setError(err.message);
-        } finally {
-            setLoading(false);
+        if (!response.ok) {
+            throw new Error('Failed to fetch cart items');
         }
-    };
+
+        const data = await response.json();
+        setCartItems(data); // Assuming data contains your cart items
+    } catch (err) {
+        console.error('Error fetching cart items:', err);
+        setError(err.message); // Assuming you have setError defined to handle errors
+    } finally {
+        setLoading(false); // Assuming you have setLoading defined to manage loading state
+    }
+};
 
     fetchCartItems();
 }, []); 
