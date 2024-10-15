@@ -7,7 +7,7 @@ const Profile = () => {
     useEffect(() => {
       const fetchProfile = async () => {
         try {
-          const res = await fetch('/get/profile', {
+          const res = await fetch('https://ecomprodb.onrender.com/get/profile', {
             method: 'GET',
             credentials: 'include', // Important for sending cookies
           });

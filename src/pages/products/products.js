@@ -20,7 +20,7 @@ const Products = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await fetch('/get/products');
+          const response = await fetch('https://ecomprodb.onrender.com/get/products');
           if (!response.ok) {
               throw new Error('Network response was not ok');
           }else{

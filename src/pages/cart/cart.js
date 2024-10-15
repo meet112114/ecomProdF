@@ -13,7 +13,7 @@ const Cart = () => {
     useEffect(() => {
         const fetchCartItems = async () => {
             try {
-                const response = await fetch('/get/cart'); // Replace with your actual endpoint
+                const response = await fetch('https://ecomprodb.onrender.com/get/cart'); // Replace with your actual endpoint
                 if (!response.ok) {
                     throw new Error('Failed to fetch cart items');
                 }
@@ -36,7 +36,7 @@ const Cart = () => {
 
             for (const item of cartItems) {
                 try {
-                    const response = await fetch(`/get/product/${item.productId}`); // Adjust endpoint
+                    const response = await fetch(`https://ecomprodb.onrender.com/get/product/${item.productId}`); // Adjust endpoint
                     if (!response.ok) {
                         throw new Error(`Failed to fetch product ${item.productId}`);
                     }
@@ -64,7 +64,7 @@ const Cart = () => {
 
     const deleteCartItem = async (item) => {
         try {
-            const res = await fetch(`/delete/cart-item/${item._id}`, {
+            const res = await fetch(`https://ecomprodb.onrender.com/delete/cart-item/${item._id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ const Cart = () => {
         const baseUrl = window.location.origin;
         console.log(baseUrl);
         try{
-            const res = await fetch("/checkout" , {
+            const res = await fetch("https://ecomprodb.onrender.com/checkout" , {
                 method:"POST",
                 headers:{
                     'Content-Type': 'application/json',
