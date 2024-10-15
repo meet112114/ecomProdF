@@ -11,17 +11,17 @@ const Order = () => {
     const [error, setError] = useState(null); // State for error handling
     const { state, dispatch } = useContext(UserContext);
 
-    useEffect(() => {
-        const token = localStorage.getItem('jwtoken'); // Retrieve the token from local storage
+    // useEffect(() => {
+    //     const token = localStorage.getItem('jwtoken'); // Retrieve the token from local storage
 
-        if (token) {
-            dispatch({ type: 'USER', payload: true  }); // Dispatch user data
-        } else {
-            // If no token, set user to null and redirect to login
-            dispatch({ type: 'USER', payload: null });
-            navigate('/login'); // Redirect to login if not authenticated
-        }
-    }, [dispatch, navigate]); // Dependencies
+    //     if (token) {
+    //         dispatch({ type: 'USER', payload: true  }); // Dispatch user data
+    //     } else {
+    //         // If no token, set user to null and redirect to login
+    //         dispatch({ type: 'USER', payload: null });
+    //         navigate('/login'); // Redirect to login if not authenticated
+    //     }
+    // }, [dispatch, navigate]); // Dependencies
 
     useEffect(() => {
         const fetchOrders = async () => {
