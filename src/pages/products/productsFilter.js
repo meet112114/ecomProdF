@@ -1,7 +1,6 @@
 import React, { useState  , useEffect} from 'react'
 import ProductCard from '../../components/productCard/ProductCard'
 import { useParams } from 'react-router-dom';
-import './productFiltered.css'
 import { gsap } from 'gsap';
 import { useGSAP } from "@gsap/react";
 
