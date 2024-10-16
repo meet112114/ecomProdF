@@ -40,6 +40,7 @@ const Order = () => {
                 const data = await response.json();
                 console.log(data); 
                 setOrders(data);
+                console.log(orders);
                
             } catch (err) {
                 console.error(err);
