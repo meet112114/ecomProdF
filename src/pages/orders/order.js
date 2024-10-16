@@ -40,7 +40,7 @@ const Order = () => {
                 const data = await response.json();
                 console.log(data); 
                 setOrders(data);
-                const orderKeys = Object.keys(orders);
+               
             } catch (err) {
                 console.error(err);
                 setError(err.message); 
@@ -57,15 +57,12 @@ const Order = () => {
     
     if (error) return <div>Error: {error}</div>;
 
-    
-    
-
     return (
         <div>
             <div className='orders-title'>Your Orders</div>
             {orderKeys.length > 0 ? ( 
                 <div className='Orders-container'>
-                    {orderKeys.map((orderId) => {
+                    {orders.map((orderId) => {
                         const order = orders[orderId];
                         return (
                             <div className='order-container' key={order._id}>
