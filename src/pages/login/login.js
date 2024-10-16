@@ -80,7 +80,7 @@ const Login = () => {
             </div>
 
             <div className='google-login'>
-                <a className='google-link' href= "https://ecomprodb.onrender.com'/auth/google/callback">
+                <a className='google-link' href= "https://ecomprodb.onrender.com/auth/google/callback">
                     <div className='google-button'>
                         
                         <img
