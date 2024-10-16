@@ -60,7 +60,7 @@ const Order = () => {
     return (
         <div>
             <div className='orders-title'>Your Orders</div>
-            {orderKeys.length > 0 ? ( 
+            {orders.length > 0 ? ( 
                 <div className='Orders-container'>
                     {orders.map((orderId) => {
                         const order = orders[orderId];
