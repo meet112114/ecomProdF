@@ -183,7 +183,7 @@ const Cart = () => {
                     <div className='payment-sec'>
 
                     <div className="total-price-container">
-                        <h3>Total Price: ${totalPrice.toFixed(2)}</h3>
+                        <h3>Total Price: ₹{totalPrice.toFixed(2)}</h3>
                     </div>
                     <div className="checkout-container">
                         <img onClick={checkout} src={cart}/>
