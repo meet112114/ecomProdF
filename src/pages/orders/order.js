@@ -6,9 +6,9 @@ import { useNavigate } from 'react-router-dom';
 
 const Order = () => {
     const navigate = useNavigate();
-    const [orders, setOrders] = useState({}); // Initialize orders as an empty object
-    const [loading, setLoading] = useState(true); // State for loading
-    const [error, setError] = useState(null); // State for error handling
+    const [orders, setOrders] = useState([]); 
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const { state, dispatch } = useContext(UserContext);
 
     // useEffect(() => {
@@ -38,31 +38,31 @@ const Order = () => {
                     throw new Error('Failed to fetch orders');
                 }
                 const data = await response.json();
-                console.log(data); // Log fetched data for debugging
-                setOrders(data); // Update the orders state
+                console.log(data); 
+                setOrders(data);
             } catch (err) {
                 console.error(err);
-                setError(err.message); // Set the error message
+                setError(err.message); 
             } finally {
-                setLoading(false); // Stop loading after fetching
+                setLoading(false); 
             }
         };
 
         fetchOrders();
     }, []);
 
-    // Render loading state
+    
     if (loading) return <div>Loading orders...</div>;
-    // Render error state
+    
     if (error) return <div>Error: {error}</div>;
 
-    // Extract order keys for mapping
+    
     const orderKeys = Object.keys(orders);
 
     return (
         <div>
             <div className='orders-title'>Your Orders</div>
-            {orderKeys.length > 0 ? ( // Check if there are any orders
+            {orderKeys.length > 0 ? ( 
                 <div className='Orders-container'>
                     {orderKeys.map((orderId) => {
                         const order = orders[orderId];
@@ -77,7 +77,7 @@ const Order = () => {
                                 
                                 <div className='order-items'>
                                     <div className='item-title'><strong>Items</strong></div>
-                                    <div className='items-list'> {/* Added a new wrapper for scrolling */}
+                                    <div className='items-list'>
                                         {order.items.map(item => (
                                             <Item key={item._id} item={item} />
                                         ))}
