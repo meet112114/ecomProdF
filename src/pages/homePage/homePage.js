@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./homePage.css"
+import { useNavigate } from 'react-router-dom';
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -7,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 const HomePage = () => {
+  const navigate = useNavigate();
   useGSAP(()=>{
    
 
@@ -65,6 +67,16 @@ const HomePage = () => {
       })
     });
 
+
+    const handleFabricNavigate = (fabric) => {
+      navigate(`/filteredProducts/fabric/${fabric}`);
+    };
+  
+    // Function to handle navigation by neck type
+    const handleNeckNavigate = (neck) => {
+      navigate(`/filteredProducts/category/${neck}`);
+    };
+
    
 
   return (
@@ -77,17 +89,17 @@ const HomePage = () => {
           </div>
         </div>
         <div id='rightsection1' className='right-section'>
-          <div className='right-container cotton'>
+          <div className='right-container cotton' onClick={() => handleFabricNavigate('cotton')}>
             <div>Cotton</div>
           </div>
-          <div className='right-container Nylon'>
+          <div className='right-container Nylon' onClick={() => handleFabricNavigate('nylon')}>
           <div>Nylon</div>
           </div>
-          <div className='right-container wool'>
+          <div className='right-container wool' onClick={() => handleFabricNavigate('wool')}>
           <div>Wool</div>
           </div>
-          <div className='right-container others'>
-          <div>Others</div>
+          <div className='right-container others' onClick={() => handleFabricNavigate('letin')}>
+          <div>Letin</div>
           </div>
         </div>
       </div>
@@ -100,17 +112,17 @@ const HomePage = () => {
           </div>
         </div>
         <div   id="rightsection2" className='right-section'>
-          <div className='right-container cotton'>
-            <div>RoundNeck</div>
+          <div className='right-container cotton'  onClick={() => handleNeckNavigate('roundneck')}>
+            <div>Round Neck</div>
           </div>
-          <div className='right-container Nylon'>
-          <div>Vneck</div>
+          <div className='right-container Nylon'  onClick={() => handleNeckNavigate('vneck')}>
+          <div>V neck</div>
           </div>
-          <div className='right-container wool'>
+          <div className='right-container wool'  onClick={() => handleNeckNavigate('colar')}>
           <div>Colar</div>
           </div>
-          <div className='right-container others'>
-          <div>Others</div>
+          <div className='right-container others'  onClick={() => handleNeckNavigate('roundedcolar')}>
+          <div>Round Colar</div>
           </div>
         </div>
       </div>
