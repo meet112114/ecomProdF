@@ -17,7 +17,7 @@ const Signup = () => {
 
         const RegisterSubmit = async (e) => {
             e.preventDefault();
-            const res = await fetch('register' , {
+            const res = await fetch('https://ecomprodb.onrender.com/register' , {
                 method:"POST",
                 headers:{
                     "Content-Type" : "application/json"
