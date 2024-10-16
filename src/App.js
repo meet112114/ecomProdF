@@ -8,6 +8,7 @@ import Signup from './pages/signup/signup';
 import Profile from './pages/profile/profile';
 import Logout from './pages/logout/logout';
 import Products from './pages/products/products';
+import ProductsF from './pages/products/productsFilter';
 import SingleProduct from './pages/singleProduct/singleProduct';
 import Order from './pages/orders/order';
 import Googlelogin from './pages/GoogleLogin/googleLogin';
