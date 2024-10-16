@@ -38,6 +38,7 @@ function App() {
         <Route path='/product/:id' element={<SingleProduct />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/orders' element={<Order />} />
+        <Route path='/filteredProducts/:filter/:id' element={<ProductsF />} />
     </Routes>
   </Router>
   </UserContext.Provider>
