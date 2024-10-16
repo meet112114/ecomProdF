@@ -79,8 +79,8 @@ const Login = () => {
                 </div>
             </div>
 
-  {/*<div className='google-login'>
-                <a className='google-link' href= "https://ecomprodb.onrender.com/auth/google/callback">
+           <div className='google-login'>
+                <a className='google-link' href= "https://ecomprodf.onrender.com/auth/google/callback">
                     <div className='google-button'>
                         
                         <img
@@ -91,7 +91,7 @@ const Login = () => {
                         <div className='google-text'>Sign In With Google</div>
                     </div>
                 </a>
-            </div>*/}
+            </div>
 
                               
             <a className='a-link' href="/register">I am not a member</a>
