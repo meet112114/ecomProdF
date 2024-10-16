@@ -11,17 +11,17 @@ const Order = () => {
     const [error, setError] = useState(null);
     const { state, dispatch } = useContext(UserContext);
 
-    // useEffect(() => {
-    //     const token = localStorage.getItem('jwtoken'); // Retrieve the token from local storage
+    useEffect(() => {
+        const token = localStorage.getItem('jwtoken'); // Retrieve the token from local storage
 
-    //     if (token) {
-    //         dispatch({ type: 'USER', payload: true  }); // Dispatch user data
-    //     } else {
-    //         // If no token, set user to null and redirect to login
-    //         dispatch({ type: 'USER', payload: null });
-    //         navigate('/login'); // Redirect to login if not authenticated
-    //     }
-    // }, [dispatch, navigate]); // Dependencies
+        if (token) {
+            dispatch({ type: 'USER', payload: true  }); // Dispatch user data
+        } else {
+            // If no token, set user to null and redirect to login
+            dispatch({ type: 'USER', payload: false });
+            navigate('/login'); // Redirect to login if not authenticated
+        }
+    }, [dispatch, navigate]); // Dependencies
 
     useEffect(() => {
         const fetchOrders = async () => {
@@ -40,6 +40,7 @@ const Order = () => {
                 const data = await response.json();
                 console.log(data); 
                 setOrders(data);
+                const orderKeys = Object.keys(orders);
             } catch (err) {
                 console.error(err);
                 setError(err.message); 
@@ -57,7 +58,7 @@ const Order = () => {
     if (error) return <div>Error: {error}</div>;
 
     
-    const orderKeys = Object.keys(orders);
+    
 
     return (
         <div>
